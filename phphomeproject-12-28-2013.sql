@@ -1,3 +1,11 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.9
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 29, 2013 at 08:56 AM
+-- Server version: 5.5.34
+-- PHP Version: 5.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -24,7 +32,14 @@ CREATE TABLE IF NOT EXISTS `homeproject_projects` (
   `about` text NOT NULL,
   `pathname` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `homeproject_projects`
+--
+
+INSERT INTO `homeproject_projects` (`id`, `name`, `about`, `pathname`) VALUES
+(1, 'My Project', 'This is an example project that demonstrates\r\nhow a project is managed inside\r\nthis re-usable project management\r\napplication.', 'myproject');
 
 -- --------------------------------------------------------
 
@@ -39,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `homeproject_releasefiles` (
   `version_id` int(11) NOT NULL,
   `filename` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -51,7 +66,16 @@ CREATE TABLE IF NOT EXISTS `homeproject_releasetypes` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `type` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `homeproject_releasetypes`
+--
+
+INSERT INTO `homeproject_releasetypes` (`id`, `type`) VALUES
+(1, 'Tarball'),
+(2, 'Debian Package'),
+(3, 'Windows ZIP');
 
 -- --------------------------------------------------------
 
@@ -64,7 +88,15 @@ CREATE TABLE IF NOT EXISTS `homeproject_releaseversions` (
   `project_id` int(11) NOT NULL,
   `version` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `homeproject_releaseversions`
+--
+
+INSERT INTO `homeproject_releaseversions` (`id`, `project_id`, `version`) VALUES
+(1, 1, '0.1'),
+(2, 1, '0.2');
 
 -- --------------------------------------------------------
 
